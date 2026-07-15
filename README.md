@@ -148,7 +148,6 @@ CAM-AR0234-GS/
 ├── README.md
 ├── raspberry_pi_driver/
 │   ├── AR0234_COMMANDS.md                                      ← Common commands cheat sheet
-│   ├── ar0234-external-trigger-strobe-v1.0.0.tar.gz           ← External trigger & strobe package
 │   ├── pkg2-ar0234-libcamera-source.tar.gz                    ← libcamera source with AR0234 IPA
 │   ├── ar0234-rpi-driver-upstream-kurokesu.tar.gz             ← Upstream open-source driver (Kurokesu)
 │   └── precompiler-driver/
@@ -161,7 +160,6 @@ CAM-AR0234-GS/
 | File | Description |
 |------|-------------|
 | [`raspberry_pi_driver/AR0234_COMMANDS.md`](./raspberry_pi_driver/AR0234_COMMANDS.md) | Common rpicam / v4l2 commands cheat sheet for AR0234 |
-| [`raspberry_pi_driver/ar0234-external-trigger-strobe-v1.0.0.tar.gz`](./raspberry_pi_driver/ar0234-external-trigger-strobe-v1.0.0.tar.gz) | External hardware trigger and strobe (flash sync) support package, v1.0.0 |
 | [`raspberry_pi_driver/pkg2-ar0234-libcamera-source.tar.gz`](./raspberry_pi_driver/pkg2-ar0234-libcamera-source.tar.gz) | libcamera source with AR0234 IPA support |
 | [`raspberry_pi_driver/ar0234-rpi-driver-upstream-kurokesu.tar.gz`](./raspberry_pi_driver/ar0234-rpi-driver-upstream-kurokesu.tar.gz) | Upstream open-source AR0234 RPi kernel driver by [Kurokesu](https://github.com/Kurokesu/ar0234-rpi-driver) (DKMS, V4L2) |
 | [`raspberry_pi_driver/precompiler-driver/ar0234-binary-v1.0.0-pi5-k6.12.47+rpt-rpi-2712.tar.gz`](./raspberry_pi_driver/precompiler-driver/ar0234-binary-v1.0.0-pi5-k6.12.47+rpt-rpi-2712.tar.gz) | Pre-built binary driver for Raspberry Pi 5 (kernel 6.12.47+rpt-rpi-2712), v1.0.0 |
