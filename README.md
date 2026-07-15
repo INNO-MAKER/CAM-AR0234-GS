@@ -1,20 +1,29 @@
 # CAM-AR0234-GS
 
-**MIPI CSI-2 2.3MP Global Shutter Camera Module (onsemi AR0234 Monochrome)**
+**MIPI CSI-2 2.3MP Global Shutter Camera Module (onsemi AR0234)**
+
+This repository covers two product variants:
+
+| Model | Sensor | Lens | IR Filter |
+|-------|--------|------|-----------|
+| **CAM-AR0234-GS-M** | AR0234CS — Monochrome | YT10115-5MP+IR0623, 6mm F1.0 | **No IR-cut filter** — full-spectrum, near-IR sensitive |
+| **CAM-AR0234-GS-C** | AR0234CS — Color | YT10115-5MP+IR0623, 6mm F1.0 | **With IR-cut filter** — standard visible-light imaging |
 
 ---
 
 ## 1. Product Overview
 
-The **CAM-AR0234-GS** is a compact MIPI CSI-2 industrial camera module featuring the **onsemi AR0234CS** monochrome global shutter CMOS sensor. With a native resolution of **1920×1200 @ 120 fps** over a 4-lane MIPI CSI-2 interface, it is designed for demanding machine vision, robotics, and embedded AI vision applications.
+The **CAM-AR0234-GS** series are compact MIPI CSI-2 industrial camera modules featuring the **onsemi AR0234CS** global shutter CMOS sensor. With a native resolution of **1920×1200 @ 120 fps** over a 4-lane MIPI CSI-2 interface, they are designed for demanding machine vision, robotics, and embedded AI vision applications.
 
-The module ships with a **YTOT YT10115-5MP+IR0623 6mm F1.0 starlight lens** (no IR-cut filter), making it ideal for near-IR and low-light night vision applications when paired with IR illumination.
+Both variants use the **YTOT YT10115-5MP+IR0623 6mm F1.0 starlight lens**, differing only in the lens mount IR filter configuration:
+
+- **CAM-AR0234-GS-M (Monochrome):** Lens mount ships **without** IR-cut filter. Full-spectrum response including near-IR — ideal for night vision, IR-illuminated inspection, and scientific imaging.
+- **CAM-AR0234-GS-C (Color):** Lens mount ships **with** IR-cut filter. Accurate color reproduction under visible light — ideal for standard machine vision, quality inspection, and color-sensitive applications.
 
 ### Key Features
 
 - **Starlight ultra-large aperture F1.1 (~F1.0)** for imaging under low light
 - **6mm focal length**, M12×P0.5 board mount; 5MP resolving power fully covers the AR0234 frame
-- **No IR-cut filter** — full-spectrum, passes near-IR; pairs with IR illumination for night vision
 - **AR0234 global shutter** — no jello on fast motion; 4-lane CSI-2, 1920×1200 @ 120 fps measured
 - **External hardware trigger + Strobe (flash sync)** output for multi-camera sync / strobed illumination
 - **Compact 32×32mm board**; low distortion (TV −5.1%), RoHS, industrial −20 to +60 °C
@@ -24,7 +33,8 @@ The module ships with a **YTOT YT10115-5MP+IR0623 6mm F1.0 starlight lens** (no 
 - Security & Surveillance (24/7 monitoring)
 - Industrial & Machine Vision
 - Embedded / Edge AI Vision
-- IR-illuminated night vision
+- IR-illuminated night vision *(CAM-AR0234-GS-M)*
+- Color inspection & quality control *(CAM-AR0234-GS-C)*
 
 ---
 
@@ -34,8 +44,8 @@ The module ships with a **YTOT YT10115-5MP+IR0623 6mm F1.0 starlight lens** (no 
 
 | Parameter | Specification |
 |-----------|--------------|
-| Sensor Model | AR0234CS (onsemi, Monochrome, Global Shutter) |
-| Sensor Type | CMOS Global Shutter (Pregius-class) |
+| Sensor Model | AR0234CS (onsemi, Global Shutter) |
+| Sensor Type | CMOS Global Shutter |
 | Effective Resolution | 2.3MP |
 | Optical Format | 1/2.6" |
 | Pixel Size | 3.0 µm × 3.0 µm |
@@ -43,7 +53,7 @@ The module ships with a **YTOT YT10115-5MP+IR0623 6mm F1.0 starlight lens** (no 
 | Max Frame Rate | 120.45 fps @ 1920×1200 |
 | ADC Bit Depth | 10-bit (RPi R10_CSI2P mode) / sensor supports up to 12-bit |
 | Dynamic Range | ~71 dB (typ.) |
-| Low Light | Monochrome + no IR-cut; near-IR sensitive; strong low-light / night performance |
+| Sensor Variant | Monochrome (CAM-AR0234-GS-M) / Color (CAM-AR0234-GS-C) |
 
 ### 2.2 Interface
 
@@ -56,14 +66,14 @@ The module ships with a **YTOT YT10115-5MP+IR0623 6mm F1.0 starlight lens** (no 
 
 ### 2.3 Lens — YT10115-5MP+IR0623
 
-| Parameter | Specification |
-|-----------|--------------|
-| Mount | M12 × P0.5 (board lens) |
-| Focal Length | 5.99 mm (~6 mm), ±5% |
-| Field of View | H ~56.6° / V ~34° / D ~66–67° |
-| Aperture | F1.1 ±10% (starlight ultra-large aperture) |
-| IR Filter | **No IR-cut filter** — datasheet §5.3 lists an IR-FILTER spec (cut 700–1050 nm), but the actual product ships **without** IR-cut; full-spectrum, passes near-IR |
-| Distortion | Optical −14% / TV −5.1% |
+| Parameter | CAM-AR0234-GS-M | CAM-AR0234-GS-C |
+|-----------|----------------|----------------|
+| Mount | M12 × P0.5 | M12 × P0.5 |
+| Focal Length | 5.99 mm (~6 mm), ±5% | 5.99 mm (~6 mm), ±5% |
+| Field of View | H ~56.6° / V ~34° / D ~66–67° | H ~56.6° / V ~34° / D ~66–67° |
+| Aperture | F1.1 ±10% | F1.1 ±10% |
+| IR Filter | **No IR-cut filter** — full-spectrum, near-IR sensitive | **With IR-cut filter** — cuts 700–1050 nm, visible light only |
+| Distortion | Optical −14% / TV −5.1% | Optical −14% / TV −5.1% |
 
 ### 2.4 Hardware
 
