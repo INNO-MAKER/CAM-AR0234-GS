@@ -120,7 +120,7 @@ Both variants use the **YTOT YT10115-5MP+IR0623 6mm F1.0 starlight lens**, diffe
 ### 5.1 Raspberry Pi 5 (kernel 6.12.47+rpt-rpi-2712)
 
 ```bash
-tar -xzf ar0234-binary-v1.0.0-pi5-k6.12.47+rpt-rpi-2712.tar.gz
+tar -xzf raspberry_pi_driver/precompiler-driver/ar0234-binary-v1.0.0-pi5-k6.12.47+rpt-rpi-2712.tar.gz
 cd ar0234-binary-v1.0.0-pi5-k6.12.47+rpt-rpi-2712
 sudo ./install.sh
 sudo reboot
@@ -131,7 +131,7 @@ sudo reboot
 ### 5.2 NVIDIA Jetson (kernel 5.15.148)
 
 ```bash
-tar -xzf ar0234_tegra_binary_k5.15.148_working_20260710_v1_0.tar.gz
+tar -xzf jetson-orin-nano-driver/5.15.148/ar0234_tegra_binary_k5.15.148_working_20260710_v1_0.tar.gz
 cd ar0234_tegra_binary_k5.15.148_working_20260710_v1_0
 sudo ./install.sh
 sudo reboot
@@ -143,10 +143,21 @@ sudo reboot
 
 ## 6. Repository Structure
 
+```
+CAM-AR0234-GS/
+├── README.md
+├── raspberry_pi_driver/
+│   └── precompiler-driver/
+│       └── ar0234-binary-v1.0.0-pi5-k6.12.47+rpt-rpi-2712.tar.gz
+└── jetson-orin-nano-driver/
+    └── 5.15.148/
+        └── ar0234_tegra_binary_k5.15.148_working_20260710_v1_0.tar.gz
+```
+
 | File | Description |
 |------|-------------|
-| [`ar0234-binary-v1.0.0-pi5-k6.12.47+rpt-rpi-2712.tar.gz`](./ar0234-binary-v1.0.0-pi5-k6.12.47+rpt-rpi-2712.tar.gz) | Pre-built binary driver for Raspberry Pi 5 (kernel 6.12.47+rpt-rpi-2712), v1.0.0 |
-| [`ar0234_tegra_binary_k5.15.148_working_20260710_v1_0.tar.gz`](./ar0234_tegra_binary_k5.15.148_working_20260710_v1_0.tar.gz) | Pre-built binary driver for NVIDIA Jetson (kernel 5.15.148), v1.0, 2026-07-10 |
+| [`raspberry_pi_driver/precompiler-driver/ar0234-binary-v1.0.0-pi5-k6.12.47+rpt-rpi-2712.tar.gz`](./raspberry_pi_driver/precompiler-driver/ar0234-binary-v1.0.0-pi5-k6.12.47+rpt-rpi-2712.tar.gz) | Pre-built binary driver for Raspberry Pi 5 (kernel 6.12.47+rpt-rpi-2712), v1.0.0 |
+| [`jetson-orin-nano-driver/5.15.148/ar0234_tegra_binary_k5.15.148_working_20260710_v1_0.tar.gz`](./jetson-orin-nano-driver/5.15.148/ar0234_tegra_binary_k5.15.148_working_20260710_v1_0.tar.gz) | Pre-built binary driver for NVIDIA Jetson (kernel 5.15.148), v1.0, 2026-07-10 |
 
 ---
 
