@@ -117,16 +117,44 @@ Both variants use the **YTOT YT10115-5MP+IR0623 6mm F1.0 starlight lens**, diffe
 
 ## 5. Driver Installation
 
-### 5.1 Raspberry Pi 5 (kernel 6.12.47+rpt-rpi-2712)
+### 5.1 Raspberry Pi 5
+
+> ⚠️ **Important**: Pre-compiled driver packages are built for **specific kernel versions**. Verify your kernel before installation:
+> ```bash
+> uname -r
+> ```
+
+**Supported pre-compiled driver versions:**
+
+| Package | OS | Kernel |
+|---------|-----|--------|
+| `ar0234-driver-pi5-k6.12.47+rpt-rpi-2712-20260720-092438.tar.gz` | Debian Trixie | 6.12.47+rpt-rpi-2712 |
+
+**Option A — Pre-compiled driver (Recommended):**
 
 ```bash
-tar -xzf raspberry_pi_driver/precompiler-driver/ar0234-binary-v1.0.0-pi5-k6.12.47+rpt-rpi-2712.tar.gz
-cd ar0234-binary-v1.0.0-pi5-k6.12.47+rpt-rpi-2712
-sudo ./install.sh
+cd raspberry_pi_driver/precompiler-driver
+tar -xzf ar0234-driver-pi5-k6.12.47+rpt-rpi-2712-20260720-092438.tar.gz
+cd <extracted-folder>
+sudo ./scripts/install.sh
 sudo reboot
+
+# After reboot, verify
+./scripts/verify.sh
+rpicam-hello --list-cameras
 ```
 
-> Tested on Raspberry Pi 5, kernel **6.12.47+rpt-rpi-2712**.
+**Option B — Runtime package (libcamera 0.7.0, no recompile needed):**
+
+If the kernel driver is already installed and you only need to update libcamera:
+
+```bash
+cd raspberry_pi_driver
+tar -xzf ar0234-runtime-pi5-libcamera0.7.0-debian13-20260720-003753.tar.gz
+cd <extracted-folder>
+sudo ./scripts/install.sh
+sudo reboot
+```
 
 ### 5.2 NVIDIA Jetson (kernel 5.15.148)
 
@@ -147,10 +175,10 @@ sudo reboot
 CAM-AR0234-GS/
 ├── README.md
 ├── raspberry_pi_driver/
-│   ├── AR0234_COMMANDS.md                                      ← Common commands cheat sheet
-│   ├── pkg2-ar0234-libcamera-source.tar.gz                    ← libcamera source with AR0234 IPA
+│   ├── AR0234_COMMANDS.md                                                    ← Common commands cheat sheet
+│   ├── ar0234-runtime-pi5-libcamera0.7.0-debian13-20260720-003753.tar.gz    ← libcamera 0.7.0 runtime
 │   └── precompiler-driver/
-│       └── ar0234-binary-v1.0.0-pi5-k6.12.47+rpt-rpi-2712.tar.gz
+│       └── ar0234-driver-pi5-k6.12.47+rpt-rpi-2712-20260720-092438.tar.gz  ← Pre-compiled driver
 └── jetson-orin-nano-driver/
     └── 5.15.148/
         └── ar0234_tegra_binary_k5.15.148_working_20260710_v1_0.tar.gz
@@ -159,8 +187,8 @@ CAM-AR0234-GS/
 | File | Description |
 |------|-------------|
 | [`raspberry_pi_driver/AR0234_COMMANDS.md`](./raspberry_pi_driver/AR0234_COMMANDS.md) | Common rpicam / v4l2 commands cheat sheet for AR0234 |
-| [`raspberry_pi_driver/pkg2-ar0234-libcamera-source.tar.gz`](./raspberry_pi_driver/pkg2-ar0234-libcamera-source.tar.gz) | libcamera source with AR0234 IPA support |
-| [`raspberry_pi_driver/precompiler-driver/ar0234-binary-v1.0.0-pi5-k6.12.47+rpt-rpi-2712.tar.gz`](./raspberry_pi_driver/precompiler-driver/ar0234-binary-v1.0.0-pi5-k6.12.47+rpt-rpi-2712.tar.gz) | Pre-built binary driver for Raspberry Pi 5 (kernel 6.12.47+rpt-rpi-2712), v1.0.0 |
+| [`raspberry_pi_driver/ar0234-runtime-pi5-libcamera0.7.0-debian13-20260720-003753.tar.gz`](./raspberry_pi_driver/ar0234-runtime-pi5-libcamera0.7.0-debian13-20260720-003753.tar.gz) | libcamera 0.7.0 runtime package for Debian Trixie (install without recompiling) |
+| [`raspberry_pi_driver/precompiler-driver/ar0234-driver-pi5-k6.12.47+rpt-rpi-2712-20260720-092438.tar.gz`](./raspberry_pi_driver/precompiler-driver/ar0234-driver-pi5-k6.12.47+rpt-rpi-2712-20260720-092438.tar.gz) | Pre-compiled kernel driver + IPA for Raspberry Pi 5 (Debian Trixie, kernel 6.12.47+rpt-rpi-2712) |
 | [`jetson-orin-nano-driver/5.15.148/ar0234_tegra_binary_k5.15.148_working_20260710_v1_0.tar.gz`](./jetson-orin-nano-driver/5.15.148/ar0234_tegra_binary_k5.15.148_working_20260710_v1_0.tar.gz) | Pre-built binary driver for NVIDIA Jetson (kernel 5.15.148), v1.0, 2026-07-10 |
 
 ---
