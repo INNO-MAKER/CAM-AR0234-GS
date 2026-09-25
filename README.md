@@ -156,7 +156,18 @@ sudo ./scripts/install.sh
 sudo reboot
 ```
 
-### 5.2 NVIDIA Jetson (kernel 5.15.148)
+### 5.2 Upstream Open-Source Driver References (Reference Only)
+
+The packaged binary driver and Raspberry Pi runtime package above remain the supported installation path for this repository. The public projects below are provided as **external source references only** for driver study, custom integration, or ports to other supported software versions. They are not copied into this repository and are not a replacement for the packaged bundles.
+
+| Platform | Public source reference | Scope |
+|----------|-------------------------|-------|
+| Raspberry Pi | [Kurokesu/ar0234-rpi-driver](https://github.com/Kurokesu/ar0234-rpi-driver) — GPL-2.0 | AR0234 V4L2 kernel driver with DKMS setup, Raspberry Pi device-tree overlay, trigger and flash support. The upstream README targets Raspberry Pi OS Bookworm/Trixie and kernel 6.12+. |
+| NVIDIA Jetson | [Kurokesu/ar0234-jetson-driver](https://github.com/Kurokesu/ar0234-jetson-driver) — GPL-2.0 | AR0234 Jetson kernel driver with DKMS setup, device-tree overlays and ISP tuning. Review its documented JetPack/L4T compatibility before use. |
+
+> **Compatibility note:** Do not mix external kernel modules, device-tree overlays, libcamera builds, or ISP tuning files with this repository's binary driver and runtime bundles. Camera board wiring, lane count, sensor variant, OS/kernel release and tuning requirements must be verified before adapting an external source driver.
+
+### 5.3 NVIDIA Jetson (kernel 5.15.148)
 
 ```bash
 tar -xzf jetson-orin-nano-driver/5.15.148/ar0234_tegra_binary_k5.15.148_working_20260710_v1_0.tar.gz
@@ -190,6 +201,8 @@ CAM-AR0234-GS/
 | [`raspberry_pi_driver/ar0234-runtime-pi5-libcamera0.7.0-debian13-20260720-003753.tar.gz`](./raspberry_pi_driver/ar0234-runtime-pi5-libcamera0.7.0-debian13-20260720-003753.tar.gz) | libcamera 0.7.0 runtime package for Debian Trixie (install without recompiling) |
 | [`raspberry_pi_driver/precompiler-driver/ar0234-driver-pi5-k6.12.47+rpt-rpi-2712-20260720-092438.tar.gz`](./raspberry_pi_driver/precompiler-driver/ar0234-driver-pi5-k6.12.47+rpt-rpi-2712-20260720-092438.tar.gz) | Pre-compiled kernel driver + IPA for Raspberry Pi 5 (Debian Trixie, kernel 6.12.47+rpt-rpi-2712) |
 | [`jetson-orin-nano-driver/5.15.148/ar0234_tegra_binary_k5.15.148_working_20260710_v1_0.tar.gz`](./jetson-orin-nano-driver/5.15.148/ar0234_tegra_binary_k5.15.148_working_20260710_v1_0.tar.gz) | Pre-built binary driver for NVIDIA Jetson (kernel 5.15.148), v1.0, 2026-07-10 |
+| [Kurokesu/ar0234-rpi-driver](https://github.com/Kurokesu/ar0234-rpi-driver) | External GPL-2.0 Raspberry Pi AR0234 V4L2 driver reference; not bundled or validated as a drop-in replacement |
+| [Kurokesu/ar0234-jetson-driver](https://github.com/Kurokesu/ar0234-jetson-driver) | External GPL-2.0 Jetson AR0234 driver reference; not bundled or validated as a drop-in replacement |
 
 ---
 
