@@ -62,7 +62,7 @@ Both variants use the **YTOT YT10115-5MP+IR0623 6mm F1.0 starlight lens**, diffe
 | Interface | MIPI CSI-2 |
 | Data Lanes | 4-lane |
 | Data Rate | 450 MHz / 900 Mbps per lane (DDR) |
-| Compatibility | Raspberry Pi 5 (rp1-cfe / PiSP), NVIDIA Jetson, embedded systems |
+| Compatibility | Raspberry Pi 5 (rp1-cfe / PiSP), embedded systems |
 
 ### 2.3 Lens — YT10115-5MP+IR0623
 
